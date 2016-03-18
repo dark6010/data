@@ -30,7 +30,7 @@ app.post("/users", function(req, res){
                         });
     console.log(user.password_confirmation);
     user.save(function(){
-        res.send("recibimos tus datos")
+        res.send("recibimos tus datos ok")
     })
 });
 

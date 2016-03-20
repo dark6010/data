@@ -19,3 +19,5 @@ git remote add origin *.git
 git remote -v
 
 git fetch algo
+
+//toca el 21

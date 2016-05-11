@@ -7,7 +7,7 @@ var session_middleware = require("./middlewares/session");
 
 var app = express();
 
-app.use("/estatico", express.static('public'));
+app.use("/public", express.static('public'));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(session({

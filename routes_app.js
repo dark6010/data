@@ -33,6 +33,7 @@ router.route("/imagenes/")
     var imagen = new Imagen(data);
     imagen.save(function(err){
         if(!err){
+            console.log("/app/imagenes/"+imagen._id);
             res.redirect("/app/imagenes/"+imagen._id);
         }else{
             res.render(err);

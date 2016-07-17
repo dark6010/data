@@ -7,7 +7,7 @@ var session_middleware = require("./middlewares/session");
 
 var app = express();
 
-app.use("/public", express.static('public'));
+app.use(express.static('./public'));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieSession({
@@ -57,5 +57,8 @@ app.post("/sessions", function(req, res){
 });
 
 app.use("/app", session_middleware);
+app.use("/app/css/app.css", function(req, res){
+    res.redirect("/css/app.css");
+})
 app.use("/app", router_app);
 app.listen(80);

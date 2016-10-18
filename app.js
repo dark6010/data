@@ -21,7 +21,7 @@ app.use(cookieSession({
 app.set("view engine", "jade");
 
 app.get("/", function(req,res){
-    console.log(req.session.user_id);
+    //console.log(req.session.user_id);
     res.render("index");
 });
 app.get("/signup", function(req,res){

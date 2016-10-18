@@ -46,15 +46,18 @@ router.route("/imagenes/")
     })
 })
     .post(function(req, res){
+    console.log(res.locals.user._id);
     var data = {
-        title: req.body.title
+        title: req.body.title,
+        creator: res.locals.user._id
     }
     var imagen = new Imagen(data);
     imagen.save(function(err){
         if(!err){
-            console.log("/app/imagenes/"+imagen._id);
+            //console.log("/app/imagenes/"+imagen._id);
             res.redirect("/app/imagenes/"+imagen._id);
         }else{
+            console.log(imagen);
             res.render(err);
         }
     })

@@ -1,8 +1,11 @@
-var Imagen = require("../models/imagenes")
+var Imagen = require("../models/imagenes");
+var owner_check = require("./image_permission");
 module.exports = function(req, res, next){
-    Imagen.findById(req.params.id, function(err, imagen){
-        if(imagen != null){
-            console.log("encontre la imagen "+ imagen.creator);
+    Imagen.findById(req.params.id)
+    .populate("creator")
+    .exec(function(err, imagen){
+        if(imagen != null && owner_check(imagen,req,res)){
+            //console.log("encontre la imagen "+ imagen.creator);
             res.locals.imagen = imagen;
             next();
         }else{

@@ -40,13 +40,14 @@ router.route("/imagenes/:id")
 });
 router.route("/imagenes/")
     .get(function(req, res){
-    Imagen.find({}, function(err,imagenes){
+    Imagen.find({creator: res.locals.user._id}, function(err,imagenes){
         if(err){res.redirect("app"); return;}
         res.render("app/imagenes/index", {imagenes:imagenes});
     })
 })
     .post(function(req, res){
-    console.log(res.locals.user._id);
+    //console.log(res.locals.user._id);
+    console.log(req.body.archivo);
     var data = {
         title: req.body.title,
         creator: res.locals.user._id

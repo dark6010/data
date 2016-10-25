@@ -4,6 +4,7 @@ var User = require("./models/user").User;
 var cookieSession = require("cookie-session");
 var router_app = require("./routes_app");
 var session_middleware = require("./middlewares/session");
+var formidable = require("express-formidable");
 var methodOverride = require("method-override")
 //npm install method-override --save
 var app = express();
@@ -18,6 +19,8 @@ app.use(cookieSession({
 }));
 // resave en true permite modificar
 // saveUninitialilized
+console.log(formidable);
+app.use(formidable.parse({ keepExtensions: true }));
 app.set("view engine", "jade");
 
 app.get("/", function(req,res){

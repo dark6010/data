@@ -13,6 +13,7 @@
     "cookie-session": "^1.2.0",
     "cookie-sessions": "0.0.2",
     "express": "^4.13.4",
+    "express-formidable": "^1.0.0",
     "express-session": "^1.13.0",
     "jade": "^1.11.0",
     "method-override": "^2.3.6",
